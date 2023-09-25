@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="main.css" rel="stylesheet" type="text/css" />
+    <style>
+        #introtext{
+            display:none;
+            float: left;
+        }
+        #img{
+            display: none;
+            float: left;
+        }
+        #head{
+            float: left;
+            width: auto;
+            height: 200px;
+        }
+        #car{
+            width: auto;
+            height: 100px;
+        }
+    </style>
+   
+</head>
+<body>
+    
+    <div id="head">
+        <input type="text" id="login" placeholder="여따 쳐">
+        <button id="login_btn" onclick="onClick()">로그인 버튼</button>
+        <div id="img" style="max-height: 100px;width: auto;"><img id="car" src="0_0.jpg" alt=""></div>
+        <h3 id="introtext">2022_27029_김지환</h3>
+    </div>
+    <div id="body">
+        <div id="left">
+            <button id="btn1" onclick="btn1" >버튼 1</button>
+            <button id="btn2" onclick="btn2">버튼 2</button>
+            <button id="btn3" onclick="btn3">버튼 3</button>
+        </div>
+        <div id="right">
+            <h1 id="content">내용 표시</h1>
+        </div>
+    </div>
+
+</body>
+<script>
+    let bincan = document.getElementById("login")
+    let loginBtn = document.getElementById("login_btn")
+    let image = document.getElementById("img")
+    let intext = document.getElementById("introtext")
+    let isLogin = false;
+    function onClick() {
+        let AID = document.getElementById("login").value;
+        if (isLogin) {
+            image.style.display="none";
+            login.style.display ="block";
+            intext.style.display = "none";
+            loginBtn.textContent="로그인 버튼";
+            isLogin = 'false';
+        }
+        else{
+            if (AID == '2516') {
+            AID = "";
+            image.style.display="block";
+            login.style.display ="none";
+            intext.style.display = "block";
+            loginBtn.textContent="로그아웃";
+            isLogin = 'true';
+            }
+        }
+    }
+    
+
+
+
+
+
+    const button1 = document.getElementById('btn1');
+const button2 = document.getElementById('btn2');
+const button3 = document.getElementById('btn3');
+const content = document.getElementById('content');
+
+// 버튼 내용 저장 변수
+let button1Content = "이게 맞나";
+let button2Content = "테스트 텍스트";
+let button3Content = '';
+
+// 로그인 상태 변수
+let isLoggedIn = false;
+
+
+// 영역 2: 버튼 클릭 시 내용 표시 및 훔치기
+button1.addEventListener('click', () => {
+    if (button1Content !== "") {
+        content.textContent = button1Content;
+    } else {
+        if (button2Content !== "") {
+            button1Content = button2Content;
+            button2Content = "";
+            button2.textContent = "버튼 2"; // 버튼2의 텍스트를 초기화합니다.
+            content.textContent = button1Content;
+        } else if (button3Content !== "") {
+            button1Content = button3Content;
+            button3Content = "";
+            button3.textContent = "버튼 3"; // 버튼3의 텍스트를 초기화합니다.
+            content.textContent = button1Content;
+        } else {
+            content.textContent = '내용이 없습니다.';
+            alert('내용이 없습니다.');
+        }
+    }
+});
+
+button2.addEventListener('click', () => {
+    if (button2Content !== "") {
+        content.textContent = button2Content;
+    } else {
+        if (button1Content !== "") {
+            button2Content = button1Content;
+            button1Content = "";
+            button1.textContent = "버튼 1"; // 버튼1의 텍스트를 초기화합니다.
+            content.textContent = button2Content;
+        } else if (button3Content !== "") {
+            button2Content = button3Content;
+            button3Content = "";
+            button3.textContent = "버튼 3"; // 버튼3의 텍스트를 초기화합니다.
+            content.textContent = button2Content;
+        } else {
+            content.textContent = '내용이 없습니다.';
+            alert('내용이 없습니다.');
+        }
+    }
+});
+
+button3.addEventListener('click', () => {
+    if (content.textContent !== '내용이 없습니다.') {
+        button3Content = content.textContent;
+        content.textContent = '저장되었습니다.';
+        alert('저장되었습니다.');
+        
+        // 버튼1의 내용을 초기화합니다.
+        button1Content = "";
+        button1.textContent = "버튼 1"; // 버튼1의 텍스트를 초기화합니다.
+    }
+});
+</script>
+</html>
